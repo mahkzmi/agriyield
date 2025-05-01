@@ -2,9 +2,11 @@ import dash
 from dash import dcc, html
 import plotly.graph_objects as go
 from dash.dependencies import Input, Output
+import os
 
 # ایجاد اپ Dash
-app = dash.Dash(__name__, external_stylesheets=['styles.css'])
+app = dash.Dash(__name__, external_stylesheets=['assets/styles.css'])
+server = app.server  # برای render.com
 
 # طراحی رابط کاربری
 app.layout = html.Div(className="container", children=[
@@ -70,5 +72,7 @@ def update_output(temperature, rainfall, soil_type, irrigation):
     yield_prediction = predict_yield(temperature, rainfall, soil_type, irrigation)
     return f"عملکرد تخمینی: {yield_prediction:.2f} کیلوگرم در هکتار"
 
+# اجرای سرور
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    port = int(os.environ.get('PORT', 8050))
+    app.run_server(host='0.0.0.0', port=port)
