@@ -1,11 +1,11 @@
-import dash
+/import dash
 from dash import dcc, html
 import plotly.graph_objects as go
 from dash.dependencies import Input, Output
 import os
 
 # ایجاد اپ Dash
-app = dash.Dash(__name__, external_stylesheets=['styles.css'])
+app = dash.Dash(__name__, external_stylesheets=['/styles.css'])
 server = app.server  # برای render.com
 
 # طراحی رابط کاربری
