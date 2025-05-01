@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 from dash.dependencies import Input, Output
 
 # ایجاد اپ Dash
-app = dash.Dash(__name__, external_stylesheets=['assets/styles.css'])
+app = dash.Dash(__name__, external_stylesheets=['styles.css'])
 
 # طراحی رابط کاربری
 app.layout = html.Div(className="container", children=[
